@@ -8,11 +8,12 @@ var path = require("path");
 
 // EXPRESS CONFIGURATION
 var app = express();
+// var PORT = 3000;
 var PORT = process.env.PORT || 3000;
 // ==============================================================================
 
 // SETUP EXPRESS APP
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use (bodyParser.text());
 app.use (bodyParser.json ({type: "application/vnd.api+json"}));
@@ -20,8 +21,8 @@ app.use (bodyParser.json ({type: "application/vnd.api+json"}));
 // ================================================================================
 
 // ROUTER
-require("./routing/apiRoutes")(app);
-require("./routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // =============================================================================
 
